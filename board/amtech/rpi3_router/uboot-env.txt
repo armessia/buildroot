@@ -1,0 +1,5 @@
+bootcmd=sleep 1
+bootdelay=0
+fdt_addr_r=0x02600000
+kernel_addr_r=0x00080000
+loadaddr=0x1000000
