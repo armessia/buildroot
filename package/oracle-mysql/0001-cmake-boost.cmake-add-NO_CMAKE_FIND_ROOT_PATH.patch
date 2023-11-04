@@ -1,0 +1,26 @@
+From f3af68332327f1db0870d65dd056acabc2223340 Mon Sep 17 00:00:00 2001
+From: Arno Messiaen <arnomessiaen@gmail.com>
+Date: Sat, 4 Nov 2023 18:02:05 +0100
+Subject: [PATCH] cmake/boost.cmake: add NO_CMAKE_FIND_ROOT_PATH when searching
+ for boost/version.hpp
+
+This as we're searching for a seperately downloaded boost version, not the one (possibly) installed in the sysroot.
+---
+ cmake/boost.cmake | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/cmake/boost.cmake b/cmake/boost.cmake
+index c5a19155797..ed68bb4eeb1 100644
+--- a/cmake/boost.cmake
++++ b/cmake/boost.cmake
+@@ -262,6 +262,7 @@ ENDIF()
+ FIND_PATH(BOOST_INCLUDE_DIR
+   NAMES boost/version.hpp
+   NO_DEFAULT_PATH
++  NO_CMAKE_FIND_ROOT_PATH
+   PATHS ${LOCAL_BOOST_DIR}
+         ${LOCAL_BOOST_DIR}/${BOOST_PACKAGE_NAME}
+         ${WITH_BOOST}
+-- 
+2.42.0
+
