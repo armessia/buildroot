@@ -41,7 +41,10 @@ comment "mariadb needs a toolchain w/ dynamic library, C++, wchar"
 
 config BR2_PACKAGE_ORACLE_MYSQL
 	bool "oracle mysql"
+	select BR2_PACKAGE_LIBEVENT
+	select BR2_PACKAGE_LIBTIRPC
 	select BR2_PACKAGE_NCURSES
+	select BR2_PACKAGE_OPENSSL
 	select BR2_PACKAGE_HAS_MYSQL
 	help
 	  The MySQL Open Source Database System
