@@ -23,12 +23,14 @@ ORACLE_MYSQL_CONFIG_SCRIPTS = mysql_config
 MYSQL_SOCKET = /run/mysql/mysql.sock
 
 # host-oracle-mysql only installs what is needed to build mysql
-HOST_ORACLE_MYSQL_DEPENDENCIES = host-ncurses
+HOST_ORACLE_MYSQL_DEPENDENCIES = host-ncurses host-zlib host-zstd
 
 HOST_ORACLE_MYSQL_CONF_OPTS = \
 	-DWITHOUT_SERVER=ON \
 	-DDOWNLOAD_BOOST=1 \
-        -DWITH_BOOST=$(@D)/boost
+        -DWITH_BOOST=$(@D)/boost \
+	-DWITH_ZLIB=system \
+	-DWITH_ZSTD=system
 
 ORACLE_MYSQL_CONF_OPTS = \
 	-DDOWNLOAD_BOOST=1 \

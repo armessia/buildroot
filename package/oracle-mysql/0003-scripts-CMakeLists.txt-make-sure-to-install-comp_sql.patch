@@ -1,0 +1,25 @@
+From 287a26212665007419db0ee10970bcf2897c58e8 Mon Sep 17 00:00:00 2001
+From: Arno Messiaen <arnomessiaen@gmail.com>
+Date: Sun, 19 Nov 2023 18:00:08 +0100
+Subject: [PATCH] scripts/CMakeLists.txt: make sure to install comp_sql
+
+---
+ scripts/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scripts/CMakeLists.txt b/scripts/CMakeLists.txt
+index dcadc2546e1..2b9c3e7d679 100644
+--- a/scripts/CMakeLists.txt
++++ b/scripts/CMakeLists.txt
+@@ -24,7 +24,7 @@ DISABLE_MISSING_PROFILE_WARNING()
+ 
+ ADD_SUBDIRECTORY(sys_schema)
+ 
+-MYSQL_ADD_EXECUTABLE(comp_sql comp_sql.cc SKIP_INSTALL)
++MYSQL_ADD_EXECUTABLE(comp_sql comp_sql.cc)
+ 
+ # Add compiler information, for easier debugging of output from mysql_config.
+ SET(COMPILER_ID_AND_VERSION
+-- 
+2.42.0
+
