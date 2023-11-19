@@ -9,7 +9,7 @@ ORACLE_MYSQL_VERSION = $(ORACLE_MYSQL_VERSION_MAJOR).0
 ORACLE_MYSQL_SOURCE = mysql-$(ORACLE_MYSQL_VERSION).tar.gz
 ORACLE_MYSQL_SITE = http://dev.mysql.com/get/Downloads/MySQL-$(ORACLE_MYSQL_VERSION_MAJOR)
 ORACLE_MYSQL_INSTALL_STAGING = YES
-ORACLE_MYSQL_DEPENDENCIES = libevent libtirpc ncurses openssl
+ORACLE_MYSQL_DEPENDENCIES = host-oracle-mysql libevent libtirpc ncurses openssl
 ORACLE_MYSQL_SUPPORTS_IN_SOURCE_BUILD = NO
 ORACLE_MYSQL_LICENSE = GPL-2.0
 ORACLE_MYSQL_LICENSE_FILES = README COPYING
@@ -21,6 +21,14 @@ ORACLE_MYSQL_CONFIG_SCRIPTS = mysql_config
 
 # Unix socket. This variable can also be consulted by other buildroot packages
 MYSQL_SOCKET = /run/mysql/mysql.sock
+
+# host-oracle-mysql only installs what is needed to build mysql
+HOST_ORACLE_MYSQL_DEPENDENCIES = host-ncurses
+
+HOST_ORACLE_MYSQL_CONF_OPTS = \
+	-DWITHOUT_SERVER=ON \
+	-DDOWNLOAD_BOOST=1 \
+        -DWITH_BOOST=$(@D)/boost
 
 ORACLE_MYSQL_CONF_OPTS = \
 	-DDOWNLOAD_BOOST=1 \
@@ -59,3 +67,4 @@ define ORACLE_MYSQL_INSTALL_INIT_SYSTEMD
 endef
 
 $(eval $(cmake-package))
+$(eval $(host-cmake-package))
