@@ -1,0 +1,7 @@
+config BR2_PACKAGE_PYTHON_AIOHTTP_SSE_CLIENT
+	bool "python-aiohttp-sse-client"
+	select BR2_PACKAGE_PYTHON_AIOHTTP # runtime
+	help
+	  Server-sent events client support for aiohttp.
+
+	  https://github.com/rtfol/aiohttp-sse-client
