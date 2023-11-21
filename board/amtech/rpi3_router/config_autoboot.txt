@@ -1,0 +1,3 @@
+gpu_mem_256=16
+gpu_mem_512=16
+gpu_mem_1024=16

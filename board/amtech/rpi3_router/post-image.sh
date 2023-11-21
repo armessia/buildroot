@@ -15,7 +15,13 @@ ROOTPATH_TMP="$(mktemp -d)"
 
 rm -rf "${GENIMAGE_TMP}"
 
-cp board/amtech/rpi3_router/cmdline.txt "${BINARIES_DIR}/rpi-firmware/"
+mkdir -p "${BINARIES_DIR}/autoboot/"
+cp board/amtech/rpi3_router/autoboot.txt "${BINARIES_DIR}/autoboot/"
+cp board/amtech/rpi3_router/config_autoboot.txt "${BINARIES_DIR}/autoboot/config.txt"
+
+mkdir -p "${BINARIES_DIR}/boot/"
+cp board/amtech/rpi3_router/config_boot.txt "${BINARIES_DIR}/boot/config.txt"
+cp board/amtech/rpi3_router/cmdline.txt "${BINARIES_DIR}/boot/"
 
 genimage \
 	--rootpath "${ROOTPATH_TMP}"   \
