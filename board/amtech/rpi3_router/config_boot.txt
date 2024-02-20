@@ -1,9 +1,0 @@
-start_file=start_cd.elf
-fixup_file=fixup_cd.dat
-kernel=Image
-device_tree=bcm2837-rpi-3-b.dtb
-disable_overscan=1
-gpu_mem_256=16
-gpu_mem_512=16
-gpu_mem_1024=16
-arm_64bit=1
